@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class TaskSeeder extends Seeder
 {
@@ -16,10 +15,15 @@ class TaskSeeder extends Seeder
      */
     public function run()
     {
-        $tasks = ['Birinci Görev','İkinci Görev', 'Üçüncü Görev'];
-        DB::table('users')->insert([
-            'name' => $tasks,
-            'completed' => rand(0,2)
-        ]);
+        $tasks = ['Birinci Görev', 'İkinci Görev', 'Üçüncü Görev', 'Dördüncü Görev', 'Beşinci Görev'];
+
+        foreach ($tasks as $task) {
+            DB::table('tasks')->insert([
+                'title' => $task,
+                'completed' => rand(0, 2),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+        }
     }
 }
