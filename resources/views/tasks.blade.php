@@ -51,7 +51,7 @@
     </div>
     <div class="col-md-8 mt-3">
         <div class="card">
-            <div class="card-header">Tamamlanmış Görevler</div>
+            <div class="card-header bg-success text-white">Tamamlanmış Görevler</div>
             <div class="card-body">
                 @foreach($tasks as $task)
                 @if($task->completed == 1)
